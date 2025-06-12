@@ -1,5 +1,4 @@
 import React from "react";
-import { useBookData } from "../hooks/useBookData";
 
 const Cards = ({ title, info }) => {
   return (
