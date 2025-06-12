@@ -5,3 +5,11 @@
   --color-btn-accent: #27391c;
   --color-btn-txt: #d2d0a0;
 }
+
+.ico {
+  @apply h-6 w-6 cursor-pointer;
+}
+
+.buttons {
+  @apply bg-btn-accent text-btn-txt;
+}
