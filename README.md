@@ -1,4 +1,8 @@
 
+*** NOTE : Since JSON server is used , instead of crudcrud or reqres due 24hrs key life , running the app from hosted link will not show table , therefore
+to check the working cloning and running on local is the only available way to check functionalities ***
+
+
 ### Installation
 
 1.  Clone the repo:
@@ -31,5 +35,4 @@ Run the development server:
 
 `npm run dev`
 
-*** Since JSON server is used , instead of crudcrud or reqres due 24hrs key life , running the app from hosted link will not show table , therefore
-to check the working cloning and running on local is the only available way to check functionalities ***
+
