@@ -3,6 +3,7 @@ import del from "../assets/icon/trash.png";
 import edit from "../assets/icon/edit.png";
 import { useBookData } from "../hooks/useBookData";
 import BookContext from "../context/context";
+import { Link } from "react-router-dom";
 
 const DashTable = ({ itemsperPage = 10 }) => {
   const { data: books = [] } = useBookData();
@@ -35,7 +36,7 @@ const DashTable = ({ itemsperPage = 10 }) => {
   const visibleData = filteredBooks.slice(startIndex, endIndex);
 
   return (
-    <div className="w-[95%] h-[480px]">
+    <div className="w-[95%] h-[520px]">
       <table className="table table-hover table-dark table-striped">
         <thead>
           <tr>
@@ -59,7 +60,10 @@ const DashTable = ({ itemsperPage = 10 }) => {
               <td>{book.status}</td>
               <td>
                 <div className="flex gap-2">
-                  <img src={edit} alt="edit" className="ico invert" />
+                  <Link to={`/book-form/edit/${book.id}`}>
+                    <img src={edit} alt="edit" className="ico invert" />
+                  </Link>
+
                   <img src={del} alt="delete" className="ico" />
                 </div>
               </td>
@@ -67,6 +71,14 @@ const DashTable = ({ itemsperPage = 10 }) => {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-end">
+        <Link
+          to="/book-form/add"
+          className="px-3 py-2 bg-white rounded font-semibold text-zinc-800 decoration-none"
+        >
+          + Add Book
+        </Link>
+      </div>
     </div>
   );
 };
