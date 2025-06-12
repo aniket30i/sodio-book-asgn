@@ -13,3 +13,7 @@
 .buttons {
   @apply bg-btn-accent text-btn-txt;
 }
+
+.filters {
+  @apply bg-gray-600 text-slate-200 border-2 border-white/10 w-28 rounded-md px-2 py-1;
+}
