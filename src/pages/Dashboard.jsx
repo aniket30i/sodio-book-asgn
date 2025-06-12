@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import DashboardContent from "../components/DashboardContent";
 
 const Dashboard = () => {
   return (
-    <div>
-      This is dashboard
-      <Link to="/" className="border-2">
-        close
-      </Link>
+    <div className="bg-zinc-900 h-screen w-full">
+      <DashboardContent />
     </div>
   );
 };
