@@ -84,28 +84,12 @@
       "status": "Available"
     },
     {
-      "id": "12",
-      "title": "Wuthering Heights",
-      "author": "Emily Brontë",
-      "genre": "Gothic",
-      "publishedYear": 1847,
-      "status": "Issued"
-    },
-    {
-      "id": "13",
-      "title": "The Hobbit",
-      "author": "J.R.R. Tolkien",
+      "id": "35d6",
+      "title": "Witcher",
+      "author": "Andrzej Sapkowski",
       "genre": "Fantasy",
-      "publishedYear": 1937,
-      "status": "Available"
-    },
-    {
-      "id": "14",
-      "title": "The Brothers Karamazov",
-      "author": "Fyodor Dostoevsky",
-      "genre": "Philosophical Fiction",
-      "publishedYear": 1880,
-      "status": "Issued"
+      "publishedYear": "2000",
+      "status": "available"
     }
   ]
 }

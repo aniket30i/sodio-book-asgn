@@ -1,9 +1,28 @@
 @import "tailwindcss";
 
+body {
+  background-color: #18181b;
+}
+
+.no-line {
+  text-decoration: none !important;
+  text-decoration-line: none !important;
+}
+
 @theme {
-  --color-primary: #aec8a4;
+  --color-green-mild: #aec8a4;
   --color-btn-accent: #27391c;
   --color-btn-txt: #d2d0a0;
+  --color-green-moss: #819a91;
+  --color-green-earth: #8a784e;
+
+  --breakpoint-xs: 310px;
+  --breakpoint-ms: 420px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
 }
 
 .ico {
@@ -15,5 +34,17 @@
 }
 
 .filters {
-  @apply bg-gray-600 text-slate-200 border-2 border-white/10 w-28 rounded-md px-2 py-1;
+  @apply bg-gray-600 text-slate-200 border-2 border-white/10 w-28 rounded-md px-2 py-1 xs:w-16 sm:w-28;
+}
+
+.cards {
+  @apply bg-green-mild rounded-xl shadow-md p-6 w-28 h-36 flex flex-col justify-end;
+}
+
+.card-txt {
+  @apply text-lg font-semibold text-gray-700;
+}
+
+.data-txt {
+  @apply text-2xl font-bold text-gray-700;
 }

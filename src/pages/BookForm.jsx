@@ -59,9 +59,9 @@ const BookForm = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-zinc-900 text-white flex items-center justify-center flex-col">
+    <div className="w-full min-h-screen bg-zinc-900 text-white flex items-center justify-center flex-col">
       {!isEdit && (
-        <div className="w-sm flex justify-start ml-3">
+        <div className="xs:w-xs sm:w-sm flex justify-start ml-3">
           <button
             onClick={() => window.history.back()}
             className="px-4 bg-btn-accent text-btn-txt rounded mb-2"

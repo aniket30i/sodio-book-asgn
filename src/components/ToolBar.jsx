@@ -20,18 +20,18 @@ const ToolBar = () => {
     useContext(BookContext);
 
   return (
-    <div className="border-2 border-white/10 h-12 mb-2 w-[95%] text-slate-200 flex justify-between items-center px-4">
-      <div className="flex-2">
+    <div className="border-2 border-white/10 h-12 mb-2 w-[95%] text-slate-200 flex justify-between items-center xs:px-2 px-4">
+      <div className="lg:flex-2">
         <input
           type="text"
           placeholder="Search..."
-          className="bg-slate-200 text-slate-900 w-84 rounded-md px-2 py-1"
+          className="bg-slate-200 text-slate-900 xs:w-16 sm:w-30 lg:w-84 rounded-md xs:px-0 px-2 py-1"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <div className="flex justify-center items-center gap-2 mx-3">
-        <p>Status : </p>
+      <div className="flex justify-center items-center gap-2 xs:mx-1 md:mx-3">
+        <p className="hidden sm:block">Status : </p>
         <select
           className="filters"
           value={status}
@@ -42,8 +42,8 @@ const ToolBar = () => {
           <option value="available">Available</option>
         </select>
       </div>
-      <div className="flex justify-center items-center gap-2 mx-3">
-        <p>Genre : </p>
+      <div className="flex justify-center items-center gap-2 xs:mx-1 md:mx-3">
+        <p className="hidden sm:block">Genre : </p>
         <select
           className="filters"
           value={genre}
