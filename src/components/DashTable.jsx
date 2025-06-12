@@ -105,7 +105,7 @@ const DashTable = ({ itemsperPage = 10 }) => {
         {/* Added mt-4 for spacing */}
         <Link
           to="/book-form/add"
-          className="xs:px-2 xs:text-sm sm:px-3 py-2 bg-white rounded font-semibold text-zinc-800 decoration-none"
+          className="xs:px-2 xs:text-sm sm:px-3 py-2 bg-white rounded font-semibold text-zinc-800 decoration-none no-line"
         >
           + Add Book
         </Link>
