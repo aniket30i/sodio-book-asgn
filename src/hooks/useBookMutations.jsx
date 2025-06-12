@@ -28,8 +28,11 @@ export const useBookMutations = () => {
 
   const remove = useMutation({
     mutationFn: deleteBook,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["books"]);
+    onSuccess: (_, id) => {
+      queryClient.setQueryData(["books"], (old) =>
+        old.filter((book) => book.id !== id)
+      );
+      toast.success("Book deleted!");
     },
   });
 

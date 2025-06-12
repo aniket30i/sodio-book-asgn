@@ -106,62 +106,6 @@
       "genre": "Philosophical Fiction",
       "publishedYear": 1880,
       "status": "Issued"
-    },
-    {
-      "id": "15",
-      "title": "One Hundred Years of Solitude",
-      "author": "Gabriel García Márquez",
-      "genre": "Magical Realism",
-      "publishedYear": 1967,
-      "status": "Available"
-    },
-    {
-      "id": "8f0a",
-      "title": "War of Worlds",
-      "author": "HG Wells",
-      "genre": "Science",
-      "publishedYear": "1940",
-      "status": "available"
-    },
-    {
-      "id": "9c5a",
-      "title": "Professor Shonku",
-      "author": "Satyajit Ray",
-      "genre": "Science",
-      "publishedYear": "1820",
-      "status": "available"
-    },
-    {
-      "id": "ae13",
-      "title": "abcd",
-      "author": "asairir",
-      "genre": "Classic",
-      "publishedYear": 2020,
-      "status": "Issued"
-    },
-    {
-      "id": "6b13",
-      "title": "Abc123",
-      "author": "zxer",
-      "genre": "Science",
-      "publishedYear": 2012,
-      "status": "Available"
-    },
-    {
-      "id": "986d",
-      "title": "Geetanjali",
-      "author": "Rabindranath Tagore",
-      "genre": "Classic",
-      "publishedYear": 1820,
-      "status": "Available"
-    },
-    {
-      "title": "New title",
-      "author": "new author",
-      "genre": "Biography",
-      "publishedYear": "1993",
-      "status": "available",
-      "id": "2210"
     }
   ]
 }

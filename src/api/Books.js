@@ -25,5 +25,5 @@ export const deleteBook = async (id) => {
     method: "DELETE",
   });
   if (!res.ok) throw new Error("Failed to delete book");
-  return res.json();
+  //   return res.json();
 };

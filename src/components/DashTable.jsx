@@ -1,15 +1,18 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import del from "../assets/icon/trash.png";
 import edit from "../assets/icon/edit.png";
 import { useBookData } from "../hooks/useBookData";
 import BookContext from "../context/context";
 import { Link } from "react-router-dom";
+import { useBookMutations } from "../hooks/useBookMutations";
+import toast from "react-hot-toast";
+import Pagination from "./Pagination";
 
 const DashTable = ({ itemsperPage = 10 }) => {
+  const { remove } = useBookMutations();
+  const [page, setPage] = useState(1);
   const { data: books = [] } = useBookData();
-  const { page, search, status, genre, setVisible } = useContext(BookContext);
-  const startIndex = (page - 1) * itemsperPage;
-  const endIndex = startIndex + itemsperPage;
+  const { search, status, genre } = useContext(BookContext);
 
   const filteredBooks = books?.filter((book) => {
     const matchesSearch =
@@ -26,14 +29,29 @@ const DashTable = ({ itemsperPage = 10 }) => {
     return matchesSearch && matchesStatus && matchesGenre;
   });
 
+  const totalPages = Math.ceil(filteredBooks.length / itemsperPage);
+  const startIndex = (page - 1) * itemsperPage;
+  const endIndex = startIndex + itemsperPage;
+  const visibleData = filteredBooks.slice(startIndex, endIndex);
+
   useEffect(() => {
-    const total = Math.ceil(filteredBooks.length / itemsperPage);
-    setVisible(total);
+    if (page > totalPages) {
+      setPage(totalPages || 1);
+    }
   }, [filteredBooks]);
 
-  console.log("status selected : ", status, " genre selected : ", genre);
+  const handleDelete = (id) => {
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this book?"
+    );
+    if (!confirmed) return;
 
-  const visibleData = filteredBooks.slice(startIndex, endIndex);
+    remove.mutate(id, {
+      onError: () => {
+        toast.error("Failed to delete the book.");
+      },
+    });
+  };
 
   return (
     <div className="w-[95%] h-[520px]">
@@ -64,7 +82,12 @@ const DashTable = ({ itemsperPage = 10 }) => {
                     <img src={edit} alt="edit" className="ico invert" />
                   </Link>
 
-                  <img src={del} alt="delete" className="ico" />
+                  <img
+                    src={del}
+                    alt="delete"
+                    className="ico"
+                    onClick={() => handleDelete(book.id)}
+                  />
                 </div>
               </td>
             </tr>
@@ -79,6 +102,9 @@ const DashTable = ({ itemsperPage = 10 }) => {
           + Add Book
         </Link>
       </div>
+      {totalPages > 1 && (
+        <Pagination page={page} setPage={setPage} totalPages={totalPages} />
+      )}
     </div>
   );
 };

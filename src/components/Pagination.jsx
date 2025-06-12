@@ -1,13 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import BookContext from "../context/context";
-import { useBookData } from "../hooks/useBookData";
 
-const Pagination = () => {
-  const { page, setPage } = useContext(BookContext);
-  const { data: books = [] } = useBookData();
-  const totalPages = Math.ceil(books.length / 10);
-
+const Pagination = ({ page, setPage, totalPages }) => {
   const handleBack = () => {
     if (page > 1) {
       setPage(page - 1);
@@ -24,7 +17,7 @@ const Pagination = () => {
         Back
       </button>
       <p className="text-xl text-slate-200">
-        {page} of {totalPages}
+        page : {page} of {totalPages}
       </p>
       <button className="p-2 buttons" onClick={handleNext}>
         Next
