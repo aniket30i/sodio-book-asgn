@@ -65,14 +65,6 @@
       "status": "Available"
     },
     {
-      "id": "9",
-      "title": "Jane Eyre",
-      "author": "Charlotte Brontë",
-      "genre": "Romance",
-      "publishedYear": 1847,
-      "status": "Available"
-    },
-    {
       "id": "10"
     },
     {
@@ -90,6 +82,14 @@
       "genre": "Fantasy",
       "publishedYear": "2000",
       "status": "available"
+    },
+    {
+      "title": "War of the Worlds",
+      "author": "Herbert G. Wells",
+      "genre": "Science Fiction",
+      "publishedYear": "1890",
+      "status": "available",
+      "id": "ad2f"
     }
   ]
 }

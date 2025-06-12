@@ -4,6 +4,21 @@ import { useEffect } from "react";
 import { useBookMutations } from "../hooks/useBookMutations";
 import { useNavigate } from "react-router-dom";
 
+const genres = [
+  "Fiction",
+  "Fantasy",
+  "Science Fiction",
+  "Historical",
+  "Dystopian",
+  "Classic",
+  "Romance",
+  "Adventure",
+  "Mystery",
+  "Biography",
+  "Self-Help",
+  "Horror",
+];
+
 const BookForm = () => {
   const { id } = useParams();
   const isEdit = Boolean(id);
@@ -97,7 +112,7 @@ const BookForm = () => {
             )}
           </div>
 
-          <div>
+          {/* <div>
             <label className="block font-semibold">Genre</label>
             <input
               className="w-full border px-3 py-2 rounded"
@@ -105,6 +120,24 @@ const BookForm = () => {
             />
             {errors.genre && (
               <p className="text-red-500">{errors.genre.message}</p>
+            )}
+          </div> */}
+
+          <div>
+            <label className="block font-semibold">Genre</label>
+            <select
+              className="w-full border px-3 py-2 rounded bg-zinc-800"
+              {...register("genre", { required: "Status is required" })}
+            >
+              <option value="">Select Genre</option>
+              {genres.map((genre) => (
+                <option key={genre} value={genre}>
+                  {genre}
+                </option>
+              ))}
+            </select>
+            {errors.status && (
+              <p className="text-red-500">{errors.status.message}</p>
             )}
           </div>
 
