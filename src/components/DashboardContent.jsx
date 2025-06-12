@@ -11,7 +11,7 @@ const DashboardContent = () => {
     <div className="h-full flex justify-center items-center flex-col">
       <ToolBar />
       <DashTable />
-      {visible <= 10 ? null : <Pagination />}
+      {visible > 1 && <Pagination />}
     </div>
   );
 };

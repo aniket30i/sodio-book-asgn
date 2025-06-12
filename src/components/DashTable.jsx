@@ -4,11 +4,11 @@ import edit from "../assets/icon/edit.png";
 import { useBookData } from "../hooks/useBookData";
 import BookContext from "../context/context";
 
-const DashTable = () => {
+const DashTable = ({ itemsperPage = 10 }) => {
   const { data: books = [] } = useBookData();
   const { page, search, status, genre, setVisible } = useContext(BookContext);
-  const startIndex = (page - 1) * 10;
-  const endIndex = startIndex + 10;
+  const startIndex = (page - 1) * itemsperPage;
+  const endIndex = startIndex + itemsperPage;
 
   const filteredBooks = books.filter((book) => {
     const matchesSearch =
@@ -25,7 +25,10 @@ const DashTable = () => {
     return matchesSearch && matchesStatus && matchesGenre;
   });
 
-  useEffect(() => setVisible(filteredBooks.length), [filteredBooks]);
+  useEffect(() => {
+    const total = Math.ceil(filteredBooks.length / itemsperPage);
+    setVisible(total);
+  }, [filteredBooks]);
 
   console.log("status selected : ", status, " genre selected : ", genre);
 
