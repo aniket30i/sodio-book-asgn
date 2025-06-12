@@ -11,16 +11,16 @@ const DashTable = ({ itemsperPage = 10 }) => {
   const startIndex = (page - 1) * itemsperPage;
   const endIndex = startIndex + itemsperPage;
 
-  const filteredBooks = books.filter((book) => {
+  const filteredBooks = books?.filter((book) => {
     const matchesSearch =
-      book.title.toLowerCase().includes(search.toLowerCase()) ||
-      book.author.toLowerCase().includes(search.toLowerCase());
+      book?.title?.toLowerCase().includes(search.toLowerCase()) ||
+      book?.author?.toLowerCase().includes(search.toLowerCase());
 
     const matchesStatus = status
-      ? book.status.toLowerCase() === status.toLowerCase()
+      ? book?.status?.toLowerCase() === status.toLowerCase()
       : true;
     const matchesGenre = genre
-      ? book.genre.toLowerCase() === genre.toLowerCase()
+      ? book?.genre?.toLowerCase() === genre.toLowerCase()
       : true;
 
     return matchesSearch && matchesStatus && matchesGenre;

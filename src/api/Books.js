@@ -1,5 +1,3 @@
-// src/api/books.js
-
 const BASE_URL = "http://localhost:3006/books";
 
 export const addBook = async (bookData) => {

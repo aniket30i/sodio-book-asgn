@@ -1,10 +1,14 @@
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { useBookMutations } from "../hooks/useBookMutations";
+import { useNavigate } from "react-router-dom";
 
 const BookForm = () => {
   const { id } = useParams();
   const isEdit = Boolean(id);
+  const { add, edit } = useBookMutations();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -20,7 +24,7 @@ const BookForm = () => {
         try {
           const res = await fetch(`http://localhost:3006/books/${id}`);
           const data = await res.json();
-          reset(data); // Prefill form with fetched data
+          reset(data);
         } catch (error) {
           console.error("Failed to fetch book data", error);
         }
@@ -31,30 +35,41 @@ const BookForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch(
-        isEdit
-          ? `http://localhost:3006/books/${id}`
-          : "http://localhost:3006/books",
-        {
-          method: isEdit ? "PUT" : "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        }
-      );
-
-      if (!response.ok) throw new Error("Failed to submit");
-
-      // 🚨 Later: Show toast notification here
-
-      // Optionally redirect or reset
-      if (!isEdit) reset();
+      if (isEdit) {
+        const { id, ...bookData } = data;
+        edit.mutate(
+          { id, bookData },
+          {
+            onSuccess: () => {
+              navigate("/dashboard");
+              return;
+            },
+          }
+        );
+      } else {
+        add.mutate(data, {
+          onSuccess: () => {
+            reset();
+          },
+        });
+      }
     } catch (error) {
       console.error("Error submitting form", error);
     }
   };
 
   return (
-    <div className="w-full h-screen bg-zinc-900 text-white flex items-center justify-center">
+    <div className="w-full h-screen bg-zinc-900 text-white flex items-center justify-center flex-col">
+      {!isEdit && (
+        <div className="w-sm flex justify-start ml-3">
+          <button
+            onClick={() => window.history.back()}
+            className="px-4 bg-btn-accent text-btn-txt rounded mb-2"
+          >
+            Back
+          </button>
+        </div>
+      )}
       <div className="max-w-xl mx-auto p-6 bg-zinc-800 rounded shadow">
         <h2 className="text-2xl font-bold mb-4">
           {isEdit ? "Edit Book" : "Add New Book"}
