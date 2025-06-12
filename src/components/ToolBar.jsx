@@ -51,7 +51,9 @@ const ToolBar = () => {
         >
           <option value="">All</option>
           {genres.map((genre) => (
-            <option value={genre}>{genre}</option>
+            <option value={genre} key={genre}>
+              {genre}
+            </option>
           ))}
         </select>
       </div>
