@@ -4,9 +4,10 @@ const BookContext = createContext();
 
 export const BookContextProvider = ({ children }) => {
   const [search, setSearch] = useState("");
-  const [genre, setGenre] = useState("all");
-  const [status, setStatus] = useState("all");
+  const [genre, setGenre] = useState("");
+  const [status, setStatus] = useState("");
   const [page, setPage] = useState(1);
+  const [visible, setVisible] = useState();
 
   return (
     <BookContext.Provider
@@ -19,6 +20,8 @@ export const BookContextProvider = ({ children }) => {
         setStatus,
         page,
         setPage,
+        visible,
+        setVisible,
       }}
     >
       {children}

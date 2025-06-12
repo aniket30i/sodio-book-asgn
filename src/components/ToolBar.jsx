@@ -37,7 +37,7 @@ const ToolBar = () => {
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
-          <option value="all">All</option>
+          <option value="">All</option>
           <option value="issued">Issued</option>
           <option value="available">Available</option>
         </select>
@@ -49,7 +49,7 @@ const ToolBar = () => {
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
         >
-          <option value="all">All</option>
+          <option value="">All</option>
           {genres.map((genre) => (
             <option value={genre}>{genre}</option>
           ))}

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import del from "../assets/icon/trash.png";
 import edit from "../assets/icon/edit.png";
 import { useBookData } from "../hooks/useBookData";
@@ -6,12 +6,30 @@ import BookContext from "../context/context";
 
 const DashTable = () => {
   const { data: books = [] } = useBookData();
-  const { page } = useContext(BookContext);
-
+  const { page, search, status, genre, setVisible } = useContext(BookContext);
   const startIndex = (page - 1) * 10;
   const endIndex = startIndex + 10;
 
-  const visibleData = books.slice(startIndex, endIndex);
+  const filteredBooks = books.filter((book) => {
+    const matchesSearch =
+      book.title.toLowerCase().includes(search.toLowerCase()) ||
+      book.author.toLowerCase().includes(search.toLowerCase());
+
+    const matchesStatus = status
+      ? book.status.toLowerCase() === status.toLowerCase()
+      : true;
+    const matchesGenre = genre
+      ? book.genre.toLowerCase() === genre.toLowerCase()
+      : true;
+
+    return matchesSearch && matchesStatus && matchesGenre;
+  });
+
+  useEffect(() => setVisible(filteredBooks.length), [filteredBooks]);
+
+  console.log("status selected : ", status, " genre selected : ", genre);
+
+  const visibleData = filteredBooks.slice(startIndex, endIndex);
 
   return (
     <div className="w-[95%] h-[480px]">
