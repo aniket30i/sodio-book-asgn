@@ -11,8 +11,9 @@ to check the working cloning and running on local is the only available way to c
     
    
     
-    `git clone https://github.com/aniket30i/sodio-book-asgn.git
-    cd sodio-book-asgn` 
+    `git clone https://github.com/aniket30i/sodio-book-asgn.git`
+    
+    `cd sodio-book-asgn` 
     
 3.  Install dependencies:
     
