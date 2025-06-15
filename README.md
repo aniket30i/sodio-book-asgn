@@ -9,7 +9,7 @@ to check the working cloning and running on local is the only available way to c
     
     bash
     
-    CopyEdit
+   
     
     `git clone https://github.com/aniket30i/sodio-book-asgn.git cd sodio-book-asgn` 
     
@@ -17,7 +17,7 @@ to check the working cloning and running on local is the only available way to c
     
     bash
     
-    CopyEdit
+   
     
     `npm install  or yarn install` 
     
